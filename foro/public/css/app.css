@@ -1,0 +1,85 @@
+:root {
+    --bg-color: #0073C2;
+    --navbar-color: #01346D;
+    --btn-color: #ED9002;
+    --auth-div-one: #C9C9C9;
+    --auth-div-two: #F5F5F5;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Auth - Login
+|--------------------------------------------------------------------------
+*/
+
+.bg-auth-div {
+    background-color: white;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 6em;
+}
+
+.auth-nav {
+    background-color: var(--navbar-color);
+    width: 100%;
+    height: 70px;
+    display: flex;
+}
+
+img.auth-nav-img {
+    width: 45px;
+    margin-left: 1em;
+}
+
+.auth-footer {
+    position: fixed;
+    background-color: var(--navbar-color);
+    width: 100%;
+    color: white;
+    bottom: 0;
+}
+
+.auth-eslogan-div {
+    padding-top: 50%;
+    padding-bottom: 50%;
+}
+
+.auth-esk-div-one {
+    background-color: var(--auth-div-one);
+    color: black;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.auth-esk-div-two {
+    background-color: var(--auth-div-two);
+    color: black;
+    border-radius: 0px 5px 5px 0px;
+    padding: 2em;
+}
+
+.col-lg-12.col-md-12.col-sm-12.pt-2.pb-2.flex {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.col-lg-12.col-md-12.col-sm-12.pt-2.pb-2.flex div,
+.auth-email-div {
+    padding: 0.5em;
+}
+
+.auth-nav-btn {
+    float: right;
+    margin-right: 3em;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Home Styles
+|--------------------------------------------------------------------------
+*/
