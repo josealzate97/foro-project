@@ -14,7 +14,7 @@ class CreateRecoveryPassTable extends Migration
     public function up()
     {
         Schema::create('recovery_pass', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('token');

@@ -25,14 +25,14 @@
     <!-- Correo -->
     <div class="col-lg-12 col-md-12 col-sm-12 auth-email-div">
         <label><b>Correo</b> *</label>
-        <input type="email" name="user_email" class="form-control user-email" placeholder="Ingresa tu correo" maxlength="100">
+        <input type="email" name="user_email"  validate="1" class="form-control user-email validate-trigger" placeholder="Ingresa tu correo" maxlength="100">
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 pt-2 pb-2 flex"> 
         <!-- Usuario -->
         <div class="col-lg-6 col-md-6 col-sm-6">
             <label><b>Usuario</b> *</label>
-            <input type="text" name="user_alias" class="form-control user-alias" placeholder="Ingresa tu usuario" maxlength="20">
+            <input type="text" name="user_alias" validate="2" class="form-control user-alias validate-trigger" placeholder="Ingresa tu usuario" maxlength="20">
         </div>
         <!-- Contraseña -->
         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -61,25 +61,12 @@
 
 @section('js')
 
-    // funcion que permite solo texto en un CAMPOS
-    $('.only-text').keydown(function(e) {
-        if (e.shiftKey || e.ctrlKey || e.altKey) {
-            e.preventDefault();
-        } else {
-            var key = e.keyCode;
-            if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-                e.preventDefault();
-            }
-        }
+    // Funcion encargada de validar usuario ya sea por correo o contraseña
+    $("·validate-trigger").on('change', function(e) {
+        console.log("Its works");
     });
 
-    // Funcion que permite solo numeros-letras en el username
-
-    // Funcion encargada de validar un correo existente
-
-    // Funcion encargada de validar un username existente
-
-    // validacion del formulario
+    // validacion y envio de datos del formulario
     $(".save-data").on('click', function() {
 
         var name = $('.user-name').val();
@@ -117,6 +104,8 @@
                             swal({
                                 icon: 'success',
                                 text: 'Usuario registrado correctamente'
+                            }).then(function() {
+                                window.location = "{{ route('login') }}";
                             });
                             break;
                         case 404:

@@ -33,7 +33,7 @@
         
     </nav>
 
-    <body>
+    <body class="col-lg-12 col-md-12 col-sm-12">
         <div class="container bg-auth-div">
             <div class="row">
                 <!-- LOGO - ESLOGAN -->

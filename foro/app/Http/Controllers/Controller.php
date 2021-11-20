@@ -11,6 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Controller as BaseController;
+use Ramsey\Uuid\Rfc4122\UuidV4;
 
 class Controller extends BaseController
 {
@@ -62,9 +63,8 @@ class Controller extends BaseController
         $params = $request->post();
         
         try {
-            
             $user = new User();
-            $user->id = Str::uuid();
+            $user->id =  UuidV4::uuid4();
             $user->name = $params['name'];
             $user->lastname = $params['lastname'];
             $user->email = $params['email'];
@@ -96,5 +96,15 @@ class Controller extends BaseController
 
         // Obtenemos los parametros en la variable params
         $params = $request->post();
+    }
+
+    /**
+     * funcion encargada de validar un usuario por username o email
+    */
+    public function validateUser(Request $request)
+    {
+        // Obtenemos los parametros en la variable params
+        $params = $request->post();
+        $dqlConstruct = null;
     }
 }
