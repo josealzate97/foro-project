@@ -95,6 +95,7 @@ class Controller extends BaseController
 
         // Obtenemos los parametros en la variable params
         $params = $request->post();
+        dump($params);die();
     }
 
     /**

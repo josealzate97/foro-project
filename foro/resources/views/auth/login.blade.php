@@ -14,12 +14,12 @@
     <!-- Usuario -->
     <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
         <label><b>Usuario</b> *</label>
-        <input type="text" name="user_alias" class="form-control user_alias" placeholder="Ingresa tu usuario">
+        <input type="text" name="user_alias" class="form-control user-alias" placeholder="Ingresa tu usuario" onkeypress="allowAlphaNumericSpace(event)">
     </div>
     <!-- Contraseña -->
     <div class="col-lg-12 col-md-12 col-sm-12  mt-3">
         <label><b>Contraseña</b> *</label>
-        <input type="password" name="user_password" class="form-control user_password" placeholder="Ingresa tu contraseña">
+        <input type="password" name="user_password" class="form-control user-password" placeholder="Ingresa tu contraseña" onkeypress="allowAlphaNumericSpace(event)">
     </div>
 
     <!-- Boton crear cuenta -->
@@ -41,9 +41,50 @@
 
 @section('js')
 
-    // validacion del formulario
+    // validacion del formulario y envio de datos
     $(".btn-login-action").on('click', function(){
-        
+
+        var username = $('.user-alias').val();
+        var password = $('.user-password').val();
+
+        if (username != '' && password != '') {
+
+            var data = {
+                "_token" : "{{ csrf_token() }}",
+                'username' : username,
+                'password' : password
+            }
+
+            // Peticion ajax 
+            $.ajax({
+                type: "POST",
+                url: "{{ route('login-user') }}",
+                data: data,
+                dataType: "json",
+                encode: true,
+            }).done(function (response) {
+                console.log(response);
+            });
+
+        } else {
+            swal({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algunos campos se encuentran vacios'
+            });
+        }
     });
+
+    // Funcion encargada de validar username solo con minusculas y numeros
+    function allowAlphaNumericSpace(e) 
+    {
+        var code = ('charCode' in e) ? e.charCode : e.keyCode;
+        
+        if (!(code == 32) && // space
+          !(code > 47 && code < 58) && // numeric (0-9)
+          !(code > 96 && code < 123)) { // lower alpha (a-z)
+          e.preventDefault();
+        }
+    }
 
 @endsection
