@@ -17,22 +17,39 @@ body {
 |--------------------------------------------------------------------------
 */
 
+
 /**  Extra small devices **/
+
 @media only screen and (max-width: 768px) {
-
+    .container.bg-auth-div {
+        background-color: white;
+        border-radius: 10px;
+        margin-top: 3em;
+    }
 }
+
+
 /**  Large devices **/
-@media only screen and (min-width: 992) {
 
+@media only screen and (min-width: 992px) {
+    .container.bg-auth-div {
+        background-color: white;
+        border-radius: 10px;
+    }
+    .row {
+        margin-top: 3em;
+    }
 }
+
+
 /**  Extra large devices **/
+
 @media only screen and (min-width: 1200px) {
-
-}
-
-.bg-auth-div {
-    background-color: white;
-    border-radius: 10px;
+    .container.bg-auth-div {
+        background-color: white;
+        border-radius: 10px;
+        margin-top: 5%;
+    }
 }
 
 .auth-nav {
@@ -70,6 +87,7 @@ img.auth-nav-img {
     background-color: var(--auth-div-two);
     color: black;
     border-radius: 0px 5px 5px 0px;
+    height: 500px;
 }
 
 .col-lg-12.col-md-12.col-sm-12.pt-2.pb-2.flex {
@@ -82,9 +100,19 @@ img.auth-nav-img {
     padding: 0.5em;
 }
 
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
 .auth-nav-btn {
     float: right;
     margin-right: 3em;
+}
+
+.email-validate-ok,
+.username-validate-ok {
+    color: green;
 }
 
 
@@ -94,15 +122,17 @@ img.auth-nav-img {
 |--------------------------------------------------------------------------
 */
 
+
 /**  Extra small devices **/
-@media only screen and (max-width: 768px) {
 
-}
+@media only screen and (max-width: 768px) {}
+
+
 /**  Large devices **/
-@media only screen and (min-width: 992) {
 
-}
+@media only screen and (min-width: 992) {}
+
+
 /**  Extra large devices **/
-@media only screen and (min-width: 1200px) {
 
-}
+@media only screen and (min-width: 1200px) {}

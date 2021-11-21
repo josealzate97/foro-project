@@ -34,6 +34,8 @@ Route::post('register-user', [Controller::class, 'registerUser'])->name('registe
 // Ruta logear usuario
 Route::post('login-user', [Controller::class, 'loginUser'])->name('login-user');
 
+// Ruta para validar username o email del usuario
+Route::post('validate-user', [Controller::class, 'validateUser'])->name('validate-user');
 /*
 |--------------------------------------------------------------------------
 | Admin
