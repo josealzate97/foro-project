@@ -7,10 +7,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Controller as BaseController;
 use Ramsey\Uuid\Rfc4122\UuidV4;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
@@ -19,8 +21,9 @@ class Controller extends BaseController
     /**
      *  Redireccion al home
     */
-    public function home()
+    public function home(Request $request)
     {
+        
         return view('home');
     }
 
@@ -62,6 +65,7 @@ class Controller extends BaseController
         $params = $request->post();
         
         try {
+
             $user = new User();
             $user->id =  UuidV4::uuid4();
             $user->name = $params['name'];
@@ -88,14 +92,32 @@ class Controller extends BaseController
     */
     public function loginUser(Request $request)
     {
-        $this->validate(request(),[
-            //put fields to be validated here
-            'email','password'
-        ]);
+        
+        // Buscamos si existe el usuario
+        $user = User::where('username', $request->username)->first();
+        
+        if ($user) {
 
-        // Obtenemos los parametros en la variable params
-        $params = $request->post();
-        dump($params);die();
+            // Validamos que la contraseña sea la misma
+            $checkPassword = Hash::check($request->password, $user->password);
+
+            if ($checkPassword == true) {
+
+                // Colocamos la data del usuario en sesion
+                $request->session()->put('user', $user);
+                $request->session()->put('_token', $request->_token);
+
+                // Login Ok - success
+                return Response([ 'msg' => 'Logged OK', 'code' => 200 ]);
+
+            } else {
+                // Contraseña incorrecta - failed login
+                return Response([ 'msg' => 'Invalid password', 'code' => 202 ]);
+            }
+        } else {
+            // Usuario no valido o no encontrado - failed login
+            return Response([ 'msg' => 'Invalid username', 'code' => 404 ]);
+        }
     }
 
     /**
@@ -138,5 +160,13 @@ class Controller extends BaseController
                 'data' => 'NO DATA' 
             ]);
         }
+    }
+
+    public function logout(Request $request)
+    {
+        // Delete the actual session
+        $request->session()->flush();
+
+        return view('auth.login');
     }
 }

@@ -1,11 +1,11 @@
-@extends('layouts.layout')
+@extends('layouts.master-layout')
 
-<!DOCTYPE html>
-<html lang="en">
+@section('nav-home')
 
-    @section('contenido')
-        <section class="row col-lg-12 col-md-12 col-sm-12">
-            
-        </section>
-    @endsection
-</html>
+@endsection
+
+@section('content')
+    <section class="row col-lg-12 col-md-12 col-sm-12">
+        {{ Session::get('user') }}
+    </section>
+@endsection

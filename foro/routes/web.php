@@ -33,7 +33,6 @@ Route::get('view-home', [Controller::class, 'home'])->name('view-home');
 Route::post('register-user', [Controller::class, 'registerUser'])->name('register-user');
 // Ruta logear usuario
 Route::post('login-user', [Controller::class, 'loginUser'])->name('login-user');
-
 // Ruta para validar username o email del usuario
 Route::post('validate-user', [Controller::class, 'validateUser'])->name('validate-user');
 /*
@@ -41,3 +40,6 @@ Route::post('validate-user', [Controller::class, 'validateUser'])->name('validat
 | Admin
 |--------------------------------------------------------------------------
 */
+
+// Ruta deslogear usuario
+Route::get('logout', [Controller::class, 'logout'])->name('logout');

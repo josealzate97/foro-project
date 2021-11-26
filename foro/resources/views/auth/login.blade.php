@@ -57,13 +57,42 @@
 
             // Peticion ajax 
             $.ajax({
+
                 type: "POST",
                 url: "{{ route('login-user') }}",
                 data: data,
                 dataType: "json",
-                encode: true,
-            }).done(function (response) {
-                console.log(response);
+                encode: true
+            }).done(function (data) {
+                
+                switch (data.code) {
+                    case 200:
+                        window.location = "{{ route('view-home') }}";
+                        
+                        break;
+                    case 202: 
+
+                        swal({
+                            icon: 'error',
+                            text: 'Contraseña incorrecta'
+                        }).then(function() {
+                            $('.user-alias').val('');
+                            $('.user-password').val('');
+                        });
+
+                        break;
+                    case 404:
+
+                        swal({
+                            icon: 'error',
+                            text: 'Usuario no existente'
+                        }).then(function() {
+                            $('.user-alias').val('');
+                            $('.user-password').val('');
+                        });
+
+                        break;
+                }
             });
 
         } else {
