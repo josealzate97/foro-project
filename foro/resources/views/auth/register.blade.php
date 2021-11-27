@@ -1,7 +1,7 @@
 @extends('layouts.auth-layout')
 
 @section('nav')
-    <a href="{{ route('login') }}" class="text-center btn btn-warning auth-nav-btn mt-3"><b>INICIAR SESION</b></a>
+    <a href="{{ route('login') }}" class="text-center btn btn-login auth-nav-btn mt-1"><b>INICIAR SESION</b></a>
 @endsection
 
 @section('content')
@@ -46,7 +46,7 @@
     <!-- Boton crear cuenta -->
     <div class="col-lg-12 col-md-12 col-sm-12">
         <center>    
-            <a href="#" class="text-center btn btn-warning btn-lg save-data"><b>REGISTRAR CUENTA</b></a>
+            <a href="#" class="text-center btn btn-regist-action btn-lg save-data"><b>REGISTRAR CUENTA</b></a>
         </center>
     </div>
 

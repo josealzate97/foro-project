@@ -11,6 +11,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+        
         <!-- Bootstrap CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome 4.7 -->
@@ -26,9 +31,11 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
 
-    <nav class="col-lg-12 col-md-12 col-sm-12 auth-nav">
+    <nav class="navbar navbar-expand-lg  auth-nav">
         <div class="col-lg-4 col-md-4 col-sm-4">
-            <img class="auth-nav-img pt-2 pb-1" src="{{ url('images/icon.png') }}">
+            <a class="navbar-brand" href="#">
+                <b>Foro Sena</b>
+            </a>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8">
             @yield('nav')
@@ -41,8 +48,27 @@
             <div class="row">
                 <!-- LOGO - ESLOGAN -->
                 <div class="col-4 auth-esk-div-one">
-                    <div class="auth-eslogan-div">    
-                        <h3 class="text-center">FORO DEL SENA</h3>
+                    <div class="auth-eslogan-div">   
+
+                        <h3 class="text-center">Foro Sena</h3>
+
+                        <hr class="bg-white">
+
+                        <div class="auth-eslogan-content-div">
+                            <i class="fa fa-question-circle-o fa-2x"></i>&nbsp;
+                            <b>PREGUNTA</b>
+                        </div>
+
+                        <div class="auth-eslogan-content-div">
+                            <i class="fa fa-commenting-o fa-2x"></i>&nbsp;
+                            <b>RESPONDE</b>
+                        </div>
+
+                        <div class="auth-eslogan-content-div">    
+                            <i class="fa fa-thumbs-o-up fa-2x"></i>&nbsp;
+                            <b>CALIFICA</b>
+                        </div>
+
                     </div>
                 </div>
                 <!-- FORMULARIO -->

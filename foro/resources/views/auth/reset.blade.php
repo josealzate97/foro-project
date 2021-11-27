@@ -2,7 +2,7 @@
 
 
 @section('nav')
-    <a href="{{ route('login') }}" class="text-center btn btn-warning auth-nav-btn mt-3"><b>INICIAR SESION</b></a>
+    <a href="{{ route('login') }}" class="text-center btn btn-login auth-nav-btn mt-1"><b>INICIAR SESION</b></a>
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
     <!-- Boton crear cuenta -->
     <div class="col-lg-12 col-md-12 col-sm-12">
         <center> <br>   
-            <a href="#" class="text-center btn btn-warning btn-lg"><b>RESTABLECER CONTRASEÑA</b></a>
+            <a href="#" class="text-center btn btn-login-action btn-lg"><b>RESTABLECER CONTRASEÑA</b></a>
         </center>
     </div>
 
