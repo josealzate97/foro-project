@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +13,7 @@ use App\Http\Controllers\Controller;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 /*
@@ -35,11 +37,22 @@ Route::post('register-user', [Controller::class, 'registerUser'])->name('registe
 Route::post('login-user', [Controller::class, 'loginUser'])->name('login-user');
 // Ruta para validar username o email del usuario
 Route::post('validate-user', [Controller::class, 'validateUser'])->name('validate-user');
+
 /*
 |--------------------------------------------------------------------------
-| Admin
+| Home 
 |--------------------------------------------------------------------------
 */
 
 // Ruta deslogear usuario
 Route::get('logout', [Controller::class, 'logout'])->name('logout');
+
+// Ruta crear post
+Route::get('post-create-view', [PostController::class, 'createPostView'])->name('post-create-view');
+
+//  Lista de usuarios
+Route::get('user-list-view', [UserController::class, 'userListView'])->name('user-list-view');
+// Editar Usuario
+Route::get('user-edit-view', [UserController::class, 'userEditView'])->name('user-edit-view');
+// Informacion de usuario
+Route::get('user-info-view/{id}', [UserController::class, 'userInfoView'])->name('user-info-view');

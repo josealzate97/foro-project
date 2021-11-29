@@ -35,11 +35,10 @@
     </head>
 
     <nav class="navbar navbar-expand-lg auth-nav">
-
         @if(session()->has('user'))
             <div class="col-lg-2 col-md-2 col-sm-2">    
                 <a class="navbar-brand" href="{{ route('view-home') }}">
-                    <b>Foro Sena</b>
+                    <b>Vago Programador</b>
                 </a>
             </div>
 
@@ -48,39 +47,36 @@
                     <div class="col-lg-10 col-md-10 col-sm-10 d-inline-flex">
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="{{ route('view-home') }}">
+                                <i class="fa fa-home"></i>
+                                Inicio
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-question"></i>
+                                Mis Preguntas
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-user"></i>
+                                Nosotros
+                            </a>
                         </li>
                     </div>
                     <div class="dropdown col-lg-2 col-md-2 col-sm-2">
-                        <button class="btn btn-warning dropdown-toggle mt-2 float-right" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <b>{{ session()->get('user.username') }}</b>
+                        <button class="btn btn-user-session dropdown-toggle mt-2" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-circle online"></i>&nbsp;
+                            <b>{{ Str::upper(session()->get('user.username')) }}</b>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+
+                        <ul class="dropdown-menu user-actions" aria-labelledby="dropdownMenuButton2">
                             <li>
-                                <a class="dropdown-item active" href="#">
-                                    <b> {{ session()->get('user.name') }} {{ session()->get('user.lastname') }} </b>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Another action
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    Mi Perfil
+                                <a class="dropdown-item" href="{{ route('user-info-view', [session()->get('user.id')] ) }}">
+                                    <i class="fa fa-user"></i>&nbsp;<b>Mi Perfil</b>
                                 </a>
                             </li>
                             <li>
@@ -88,7 +84,7 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}">
-                                    Cerrar Sesion
+                                    <i class="fa fa-sign-out"></i>&nbsp;<b>Cerrar Sesion</b>
                                 </a>
                             </li>
                         </ul>
@@ -98,7 +94,7 @@
         @else
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <a class="navbar-brand" href="#">
-                    <b>Foro Sena</b>
+                    <b>Vago Programador</b>
                 </a>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8">

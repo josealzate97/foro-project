@@ -1,9 +1,14 @@
 :root {
     --bg-color: #c7c7c7;
     --navbar-color: #005ac0;
-    --btn-color: #ED9002;
+    --btn-border-color: #ffb342;
     --auth-div-one: #1966be;
     --auth-div-two: #F5F5F5;
+    --color-white: white;
+    --color-black: black;
+    --color-green: rgb(1, 185, 1);
+    --color-yellow: #ffb342;
+    --color-blue-light: #8bbef8;
 }
 
 body {
@@ -13,7 +18,7 @@ body {
 
 /*
 |--------------------------------------------------------------------------
-| Auth - Login
+| Login - Auth
 |--------------------------------------------------------------------------
 */
 
@@ -22,7 +27,7 @@ body {
 
 @media only screen and (max-width: 768px) {
     .container.bg-auth-div {
-        background-color: white;
+        background-color: var(--color-white);
         border-radius: 10px;
         margin-top: 3em;
     }
@@ -33,7 +38,7 @@ body {
 
 @media only screen and (min-width: 992px) {
     .container.bg-auth-div {
-        background-color: white;
+        background-color: var(--color-white);
         border-radius: 10px;
     }
     .row {
@@ -46,7 +51,7 @@ body {
 
 @media only screen and (min-width: 1200px) {
     .container.bg-auth-div {
-        background-color: white;
+        background-color: var(--color-white);
         border-radius: 10px;
         margin-top: 5%;
     }
@@ -57,7 +62,7 @@ body {
     width: 100%;
     height: 70px;
     display: flex;
-    color: white;
+    color: var(--color-white);
 }
 
 img.auth-nav-img {
@@ -69,7 +74,7 @@ img.auth-nav-img {
     position: fixed;
     background-color: var(--navbar-color);
     width: 100%;
-    color: white;
+    color: var(--color-white);
     bottom: 0;
 }
 
@@ -79,13 +84,13 @@ img.auth-nav-img {
 
 .auth-esk-div-one {
     background-color: var(--auth-div-one);
-    color: black;
+    color: var(--color-black);
     border-radius: 5px 0px 0px 5px;
 }
 
 .auth-esk-div-two {
     background-color: var(--auth-div-two);
-    color: black;
+    color: var(--color-black);
     border-radius: 0px 5px 5px 0px;
     height: 500px;
 }
@@ -112,53 +117,53 @@ a.disabled {
 
 .email-validate-ok,
 .username-validate-ok {
-    color: green;
+    color: var(--color-green);
 }
 
 .btn-register,
 .btn-login {
     background-color: var(--navbar-color);
-    border: 2px solid #ffc107;
-    color: #ffc107;
+    border: 2px solid var(--btn-border-color);
+    color: var(--btn-border-color);
     border-radius: 10px;
 }
 
 .btn-register:hover,
 .btn-login:hover {
-    color: white;
+    color: var(--color-white);
 }
 
 .btn-login-action,
-.btn-regist-action {
-    background-color: white;
-    border: 3px solid var(--navbar-color);
-    color: black;
+.btn-regist-action,
+.btn-make-ask {
+    background-color: var(--navbar-color);
+    border: 2px solid var(--btn-border-color);
+    color: var(--color-white);
     border-radius: 10px;
 }
 
 .btn-login-action:hover,
-.btn-regist-action:hover {
-    border: 3px solid #ffc107;
-    background-color: var(--navbar-color);
-    color: white;
+.btn-regist-action:hover,
+.btn-make-ask:hover {
+    color: var(--color-yellow);
 }
 
 a.navbar-brand {
     font-family: 'Pacifico', cursive;
-    color: white;
+    color: var(--color-white);
     margin-left: 1em;
     font-size: 2em;
 }
 
 .auth-eslogan-div h3 {
     font-family: 'Pacifico', cursive;
-    color: white;
+    color: var(--color-white);
     font-size: 3em;
 }
 
 .auth-eslogan-content-div {
     width: fit-content;
-    color: white;
+    color: var(--color-white);
     height: 4em;
     font-size: 1.5em;
     padding-left: 4em;
@@ -168,7 +173,7 @@ a.navbar-brand {
 
 /*
 |--------------------------------------------------------------------------
-| Home Styles
+| Home / Inicio
 |--------------------------------------------------------------------------
 */
 
@@ -177,30 +182,138 @@ a.navbar-brand {
 }
 
 .navbar-nav li a {
-    color: white;
+    color: var(--color-white);
     margin-top: 0.5em;
     font-weight: bold;
 }
 
 .navbar-nav li a:hover {
-    color: #ffc107;
+    color: var(--color-yellow);
 }
 
 .navbar-nav li:active,
 .navbar-nav li a:focus {
-    color: #ffc107;
+    color: var(--color-yellow);
 }
 
 .home-content-div {
-    background-color: white;
-    color: black;
+    background-color: var(--color-white);
+    color: var(--color-black);
     margin-top: 1.5em;
     border-radius: 10px;
     padding: 2em;
 }
 
-a.dropdown-menu {
-    color: black;
+.user-actions li a {
+    color: var(--color-black);
+    height: max-content;
+}
+
+.user-actions li a:hover {
+    color: var(--navbar-color);
+}
+
+.btn-user-session {
+    background-color: var(--navbar-color);
+    border: 2px solid var(--color-yellow);
+    color: var(--color-yellow);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    display: flow-root;
+}
+
+.btn-user-session:hover {
+    color: var(--color-white);
+}
+
+ul.dropdown-menu.user-actions li {
+    padding: 0 !important;
+}
+
+ul.dropdown-menu.user-actions.show {
+    margin-left: 2em;
+    margin-top: 0.7em;
+    width: 90%;
+    border: 2px solid var(--navbar-color);
+}
+
+.online {
+    color: var(--color-green);
+}
+
+.text-user-welcome {
+    color: var(--navbar-color);
+}
+
+.post-list-div {
+    padding-left: 2em;
+    border-left: 1px solid var(--navbar-color);
+    border-right: 1px solid var(--navbar-color);
+}
+
+.post-list-contenedor {
+    display: grid;
+}
+
+.post-list {
+    background-color: var(--color-blue-light);
+    color: var(--color-black);
+    width: 100%;
+    border-radius: 7px;
+    padding: 1em;
+    display: flex;
+}
+
+.post-respuestas,
+.post-votos {
+    border: 2px solid var(--navbar-color);
+    border-radius: 7px;
+    width: 70px;
+    display: grid;
+    text-align: center;
+    padding: 0.5em;
+    margin-right: 0.5em;
+}
+
+.post-body {
+    padding: 0.5em;
+    margin-left: 0.5em;
+    display: grid;
+}
+
+.post-tags {
+    margin-right: 0.5em;
+    background-color: #c7c7c7;
+    padding: 0.3em;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.post-date {
+    font-size: 15px;
+    text-align: right;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Post Modulo
+|--------------------------------------------------------------------------
+*/
+
+.create-post-tips {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: var(--color-blue-light);
+    padding: 2em;
+}
+
+.create-post-div {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    background-color: var(--color-blue-light);
+    padding: 2em;
 }
 
 

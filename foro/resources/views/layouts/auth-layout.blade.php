@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg  auth-nav">
         <div class="col-lg-4 col-md-4 col-sm-4">
             <a class="navbar-brand" href="#">
-                <b>Foro Sena</b>
+                <b>Vago Programador</b>
             </a>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8">
@@ -50,7 +50,7 @@
                 <div class="col-4 auth-esk-div-one">
                     <div class="auth-eslogan-div">   
 
-                        <h3 class="text-center">Foro Sena</h3>
+                        <h3 class="text-center">Vago Programador</h3>
 
                         <hr class="bg-white">
 
