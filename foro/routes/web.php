@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 /*
@@ -48,16 +48,17 @@ Route::post('validate-user', [Controller::class, 'validateUser'])->name('validat
 Route::get('logout', [Controller::class, 'logout'])->name('logout');
 
 // Ruta formulario para crear post
-Route::post('post-create-view', [PostController::class, 'createPostView'])->name('post-create-view');
+Route::get('post-create-view', [PostController::class, 'createPostView'])->name('post-create-view');
 // Ruta crear post
 Route::post('create-post', [PostController::class, 'createNewPost'])->name('create-post');
 // Ruta para acceder a un post especifico
-
+Route::get('post-info/{id}', [PostController::class, 'infoPost'])->name('post-info');
 // Ruta para crear comentario
+Route::post('comment-create', [PostController::class, 'createComment'])->name('comment-create');
 
 //  Lista de usuarios
 Route::get('user-list-view', [UserController::class, 'userListView'])->name('user-list-view');
 // Editar Usuario
 Route::get('user-edit-view', [UserController::class, 'userEditView'])->name('user-edit-view');
 // Informacion de usuario
-Route::get('user-info-view/{id}', [UserController::class, 'userInfoView'])->name('user-info-view');
+Route::get('user-info-view', [UserController::class, 'userInfoView'])->name('user-info-view');

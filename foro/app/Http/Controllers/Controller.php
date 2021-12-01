@@ -19,12 +19,14 @@ use Illuminate\Support\Facades\Session;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
+    
     /**
      *  Redireccion al home
     */
     public function home(Request $request)
     {
+        
+
         // Lisar de todos los posts
         $posts = Post::all();
         $data = [];
@@ -38,13 +40,20 @@ class Controller extends BaseController
             $data[$key]['title'] = $rows->title;
             $data[$key]['body'] = $rows->body;
             $data[$key]['category'] = $rows->category;
-            $data[$key]['tags'] = strpos($rows->tag, ',') == true ? explode(',', $rows->tag) : $rows->tag;
 
-            $data[$key]['userId'] = $getUserdata;
-            $data[$key]['date'] = date_format($rows->created_at, "Y/m/d H:i:s");
+            $tagData = strpos($rows->tag, ',') == true ? explode(',', $rows->tag) : $rows->tag;
+
+            $data[$key]['tags'] = $tagData;
+
+            $data[$key]['userId'] = $getUserdata->id;
+            $data[$key]['username'] = $getUserdata->username;
+
+            $data[$key]['date'] = date_format($rows->created_at, "j F, Y");
         }
 
         return view('home')->with('posts', $data);
+        
+
     }
 
     /**
@@ -187,6 +196,6 @@ class Controller extends BaseController
         // Delete the actual session
         $request->session()->flush();
 
-        return view('auth.login');
+        return redirect('login');
     }
 }

@@ -313,6 +313,11 @@ ul.dropdown-menu.user-actions.show {
 |--------------------------------------------------------------------------
 */
 
+div.post-list:hover {
+    border: 2px solid var(--navbar-color);
+    border-radius: 10px;
+}
+
 .btn-create-post {
     background-color: var(--navbar-color);
     border: 2px solid var(--btn-border-color);
@@ -336,6 +341,41 @@ ul.dropdown-menu.user-actions.show {
     border-bottom-left-radius: 7px;
     background-color: var(--color-blue-light);
     padding: 2em;
+}
+
+.post-comments {
+    border: 2px solid var(--color-blue-light);
+    border-radius: 10px;
+    padding: 1.5em;
+    margin-top: 2em;
+}
+
+.comments-already-done {
+    border: 2px solid var(--color-blue-light);
+    border-radius: 10px;
+    padding: 1em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Post Modulo
+|--------------------------------------------------------------------------
+*/
+
+.user-info-div {
+    padding: 2em;
+    margin: 0 auto;
+    border: 2px solid var(--navbar-color);
+    border-radius: 7px;
+    width: 50%;
+    margin-bottom: 4em;
+}
+
+.user-info-div:hover {
+    color: var(--auth-div-one);
 }
 
 

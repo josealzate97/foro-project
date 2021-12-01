@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    {{ csrf_field() }}
     <section class="home-content-div col-lg-12 col-md-12 col-sm-12 d-inline-flex create-post-parent-div">
         <!-- Create Post -->
         <div class="col-lg-8 col-md-8 col-sm-8 create-post-div mt-2">
@@ -48,7 +49,6 @@
                 <li><b>Describe lo que has intentado</b></li>
                 <li><b>Cuando sea apropiado, muestra el codigo</b></li>
             </ol>
-
 
         </div>
     </div>

@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+    
+    public $incrementing = false;
 
     protected $fillable = [
         'id',
@@ -17,5 +19,11 @@ class Comment extends Model
         'like',
         'dislike',
         'date'
+    ];
+
+    protected $casts = [
+        'id' => 'string',
+        'user_id' => 'string',
+        'post_id' => 'string'
     ];
 }

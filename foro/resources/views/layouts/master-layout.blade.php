@@ -53,19 +53,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-question"></i>
-                                Mis Preguntas
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-user"></i>
-                                Nosotros
-                            </a>
-                        </li>
                     </div>
                     <div class="dropdown col-lg-2 col-md-2 col-sm-2">
                         <button class="btn-user-session dropdown-toggle mt-3" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +62,7 @@
 
                         <ul class="dropdown-menu user-actions" aria-labelledby="dropdownMenuButton2">
                             <li>
-                                <a class="dropdown-item" href="{{ route('user-info-view', [session()->get('user.id')] ) }}">
+                                <a class="dropdown-item" href="{{ route('user-info-view') }}">
                                     <i class="fa fa-user"></i>&nbsp;<b>Mi Perfil</b>
                                 </a>
                             </li>
@@ -109,13 +96,6 @@
             @yield('content')
         </div>
     </body>
-
-    <footer>
-        <div class="col-12 auth-footer pb-4 pt-4 text-center">
-            <b>Armenia - Colombia 2021</b>    
-            @yield('footer')
-        </div>
-    </footer>
 
     <script type="text/javascript">
         @yield('js')

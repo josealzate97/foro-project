@@ -32,9 +32,10 @@
                     <i class="fa fa-star"></i>&nbsp;
                     <b>PREGUNTAS PRINCIPALES </b>
                 </h5>
-                
-                @foreach ($posts as $row)
-                    <div class="post-list-contenedor ml-1 mr-1">
+
+                @foreach ($posts as  $row)
+
+                    <div class="post-list-contenedor ml-1 mr-1" id-post="{{ $row['id'] }}">
                         <!-- POSTS -->
                         <div class="post-list col-lg-12 col-md-12 col-sm-12 mb-2 d-inline-flex">
                             <!-- Votos -->    
@@ -49,19 +50,28 @@
                             </div>
                             <!-- Cuerpo Post -->
                             <div class="col-lg-8 col-md-8 col-sm-8 post-body">
-                                <b><a href="">Formatear listas</a></b>
+                                <b>
+                                    <a href="{{ route('post-info', [ 'id' => $row['id'] ] ) }}">
+                                        {{ $row['title'] }}
+                                    </a>
+                                </b>
                                 
                                 <div class="d-inline-flex">
                                     <!-- tags -->
                                     <div class="col-6 mt-2">
-                                        <b class="post-tags">php</b>
-                                        <b class="post-tags">mysql</b>
-                                        <b class="post-tags">Poo</b>
+                                        <?php
+                                            
+                                            $tags = (array) $row['tags'];
+                                            
+                                            foreach ($tags as $key => $value) {
+                                                echo "<b class='post-tags'>".$value."</b>";
+                                            }
+                                        ?>
                                     </div>
 
                                     <!-- Fecha -->
                                     <div class="col-6  mt-2">
-                                        <b class="post-date">{{ session()->get('user.username') }} -  Hoy 10:30 am </b> 
+                                        <b class="post-date">{{ $row['username'] }} -  {{ $row['date'] }} </b> 
                                     </div>
                                 </div>
                             </div>
