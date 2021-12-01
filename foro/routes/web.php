@@ -47,8 +47,13 @@ Route::post('validate-user', [Controller::class, 'validateUser'])->name('validat
 // Ruta deslogear usuario
 Route::get('logout', [Controller::class, 'logout'])->name('logout');
 
+// Ruta formulario para crear post
+Route::post('post-create-view', [PostController::class, 'createPostView'])->name('post-create-view');
 // Ruta crear post
-Route::get('post-create-view', [PostController::class, 'createPostView'])->name('post-create-view');
+Route::post('create-post', [PostController::class, 'createNewPost'])->name('create-post');
+// Ruta para acceder a un post especifico
+
+// Ruta para crear comentario
 
 //  Lista de usuarios
 Route::get('user-list-view', [UserController::class, 'userListView'])->name('user-list-view');

@@ -40,7 +40,8 @@
 @section('footer') @endsection
 
 @section('js')
-
+//<script>
+    
     // validacion del formulario y envio de datos
     $(".btn-login-action").on('click', function(){
 

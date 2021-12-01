@@ -17,6 +17,8 @@ class User extends Authenticatable
     CONST ROLE_ADMIN = 1;
     CONST ROLE_USER = 2;
 
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -50,5 +52,6 @@ class User extends Authenticatable
     */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'id' => 'string',
     ];
 }

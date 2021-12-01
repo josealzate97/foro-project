@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -23,8 +25,26 @@ class Controller extends BaseController
     */
     public function home(Request $request)
     {
-        
-        return view('home');
+        // Lisar de todos los posts
+        $posts = Post::all();
+        $data = [];
+
+        // recorremos los posts y creamos un nuevo arreglo
+        foreach ($posts as $key => $rows) {
+
+            $getUserdata = DB::table('users')->where('id', $rows->user_id)->first();
+
+            $data[$key]['id'] = $rows->id;
+            $data[$key]['title'] = $rows->title;
+            $data[$key]['body'] = $rows->body;
+            $data[$key]['category'] = $rows->category;
+            $data[$key]['tags'] = strpos($rows->tag, ',') == true ? explode(',', $rows->tag) : $rows->tag;
+
+            $data[$key]['userId'] = $getUserdata;
+            $data[$key]['date'] = date_format($rows->created_at, "Y/m/d H:i:s");
+        }
+
+        return view('home')->with('posts', $data);
     }
 
     /**

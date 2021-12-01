@@ -9,11 +9,16 @@ class Post extends Model
 {
     use HasFactory;
 
+    CONST TECH_CATEGORY = 1;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
-     */
+    */
+
+    public $incrementing = false;
+
     protected $fillable = [
         'id',
         'user_id',
@@ -22,5 +27,10 @@ class Post extends Model
         'category',
         'tag',
         'date'
+    ];
+
+    protected $casts = [
+        'id' => 'string',
+        'user_id' => 'string'
     ];
 }

@@ -10,11 +10,7 @@
         <link rel="icon" type="image/png" href="{{ url('images/icon.png') }}">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+        <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
         
         <!-- Bootstrap CDN -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +18,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Estilos de la app -->
         <link href="{{ url('css/app.css') }}" rel="stylesheet">
+        <!-- Simple tags -->
+        <link href="{{ url('css/amsify.suggestags.css') }}" rel="stylesheet">
 
         <!-- Jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,18 +29,20 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+        <!-- Simple tags -->
+        <script src="{{ url('js/jquery.amsify.suggestags.js') }}"></script>
 
     </head>
 
     <nav class="navbar navbar-expand-lg auth-nav">
         @if(session()->has('user'))
-            <div class="col-lg-2 col-md-2 col-sm-2">    
+            <div class="col-lg-3 col-md-3 col-sm-3">    
                 <a class="navbar-brand" href="{{ route('view-home') }}">
                     <b>Vago Programador</b>
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse col-lg-10 col-md-10 col-sm-10" id="navbarNavDropdown">        
+            <div class="collapse navbar-collapse col-lg-9 col-md-9 col-sm-9" id="navbarNavDropdown">        
                 <ul class="navbar-nav col-lg-12 col-md-12 col-sm-12">
                     <div class="col-lg-10 col-md-10 col-sm-10 d-inline-flex">
                         
@@ -68,7 +68,7 @@
                         </li>
                     </div>
                     <div class="dropdown col-lg-2 col-md-2 col-sm-2">
-                        <button class="btn btn-user-session dropdown-toggle mt-2" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn-user-session dropdown-toggle mt-3" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-circle online"></i>&nbsp;
                             <b>{{ Str::upper(session()->get('user.username')) }}</b>
                         </button>

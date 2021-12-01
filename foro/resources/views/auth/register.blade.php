@@ -62,7 +62,8 @@
 
 
 @section('js')
-
+//<script>
+    
     // Script al cargar el documento
     $( document ).ready(function() {
         $('.email-validate-ok').hide();
